@@ -1,0 +1,7 @@
+.vscode
+env
+*.session*
+.DS_STORE
+idea
+config.json
+venv
