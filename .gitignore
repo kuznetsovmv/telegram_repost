@@ -4,4 +4,5 @@ env
 .DS_STORE
 idea
 config.json
+config.dev.json
 venv
