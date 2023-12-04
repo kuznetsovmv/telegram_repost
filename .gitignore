@@ -5,4 +5,5 @@ env
 idea
 config.json
 config.dev.json
+*.log
 venv
