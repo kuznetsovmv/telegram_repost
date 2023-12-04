@@ -1,0 +1,6 @@
+{
+    "api_id": 123,
+    "api_hash": "my_hash_value",
+    "client_phone": "+123123123",
+    "recipient_channel_ids": []
+}

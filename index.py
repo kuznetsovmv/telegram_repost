@@ -7,7 +7,7 @@ SESSION_NAME = 'telegram_re_poster'
 def client_start():
     with open('config.json') as config_file:
         config = json.load(config_file)
-    with TelegramClient(session=SESSION_NAME, api_hash=config['api_hash'], api_id=config['api_id']).start() as client:
+    with (TelegramClient(session=SESSION_NAME, api_hash=config['api_hash'], api_id=config['api_id']).start(phone=config['client_phone']) as client):
         print('telegram connected')
 
         def filter_handle(event):
