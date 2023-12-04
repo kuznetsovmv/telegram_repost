@@ -1,4 +1,5 @@
-from telethon import TelegramClient, events
+from telethon import TelegramClient
+from telethon.events import NewMessage
 import json
 
 SESSION_NAME = 'telegram_re_poster'
@@ -7,8 +8,11 @@ SESSION_NAME = 'telegram_re_poster'
 def client_start():
     with open('config.json') as config_file:
         config = json.load(config_file)
-    with (TelegramClient(session=SESSION_NAME, api_hash=config['api_hash'], api_id=config['api_id']).start(phone=config['client_phone']) as client):
-        print('telegram connected')
+    with TelegramClient(
+            session=SESSION_NAME,
+            api_hash=config['api_hash'],
+            api_id=config['api_id']).start(phone=config['client_phone']) as client:
+        print('Telegram connected')
 
         def filter_handle(event):
             try:
@@ -20,7 +24,7 @@ def client_start():
             for channel_id in config['recipient_channel_ids']:
                 await client.forward_messages(channel_id, event.message)
 
-        @client.on(events.NewMessage(func=filter_handle))
+        @client.on(NewMessage(func=filter_handle))
         async def handler(event):
             try:
                 channel_id = event.to_id.channel_id
