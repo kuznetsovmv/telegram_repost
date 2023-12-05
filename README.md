@@ -47,4 +47,4 @@ python3 index.py --session=telegram_session --config=config.json
 | `session` | name of your Telegram session | No       | telegram_forward |
 | `config`  | config file name              | No       | config.json      |
 
-you can find yor run log at `<session_name>.log` file (`telegram_forward.log` by default)
+You can find yor run log at `<session_name>.log` file (`telegram_forward.log` by default)
