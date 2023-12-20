@@ -23,7 +23,9 @@ def client_start(session_name=DEFAULT_SESSION_NAME, config_file_name=DEFAULT_CON
     with TelegramClient(
             session=session_name,
             api_hash=config['api_hash'],
-            api_id=config['api_id']).start(phone=config['client_phone']) as client:
+            api_id=config['api_id'],
+            system_version=config['system_version']
+    ).start(phone=config['client_phone']) as client:
         logger.info('Telegram connected')
 
         def filter_handle(event):
